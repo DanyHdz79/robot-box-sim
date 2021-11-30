@@ -175,32 +175,32 @@ class Maze(Model):
         else:
             self.schedule.step()
 
-""" #Función para cargar la imagen correspondiente para los agentes
+#Función para cargar la imagen correspondiente para los agentes
 def agent_portrayal(agent):
     if(type(agent) == Robot):
         if(agent.carry):
-            return {"Shape": "robot_with_box.png", "Layer": 1}
+            return {"Shape": "images/robot_with_box.png", "Layer": 1}
         else:
-            return {"Shape": "robot.png", "Layer": 1}
+            return {"Shape": "images/robot.png", "Layer": 1}
     elif(type(agent) == Wall):    
         return {"Shape": "rect", "w": 1, "h": 1, "Filled": "true", "Color": "Gray", "Layer": 0}
     else:
         if(agent.active):
             numB = agent.model.count_box(agent.model.grid.get_cell_list_contents(agent.pos))
             if(numB == 2):
-                return {"Shape": "stack2.png", "Layer": 0}
+                return {"Shape": "images/stack2.png", "Layer": 0}
             elif(numB == 3):
-                return {"Shape": "stack3.png", "Layer": 0}
+                return {"Shape": "images/stack3.png", "Layer": 0}
             elif(numB == 4):
-                return {"Shape": "stack4.png", "Layer": 0}
+                return {"Shape": "images/stack4.png", "Layer": 0}
             elif(numB == 5):
-                return {"Shape": "stack5.png", "Layer": 0}
+                return {"Shape": "images/stack5.png", "Layer": 0}
             else:
-                return {"Shape": "box.png", "Layer": 0}
+                return {"Shape": "images/box.png", "Layer": 0}
 
 grid = CanvasGrid(agent_portrayal, 10, 10, 450, 450)
 
 text = display_text()
 server = ModularServer(Maze, [grid, text], "Robots", {})
 server.port = 8522
-server.launch() """
+server.launch()
